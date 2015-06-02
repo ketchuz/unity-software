@@ -1,0 +1,161 @@
+@media only screen and (min-width: 40.063em) {
+  #logo-image {
+    width: auto;
+    margin: -22% 0 0 0; }
+
+  .title-area {
+    max-width: 35%; }
+
+  .scroll #logo-image {
+    width: 181px;
+    margin: -18px -5px 22px 20px; } }
+@media only screen and (min-width: 64.063em) {
+  #logo-image {
+    width: 35%;
+    margin: -75px 0 0 0; }
+
+  .top-bar {
+    min-width: 100%; }
+
+  .title-area {
+    max-width: none; } }
+.header-section {
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.4);
+  position: fixed;
+  z-index: 99;
+  min-width: 100%; }
+
+.contain-to-grid {
+  background: rgba(255, 255, 255, 0.97); }
+
+.header-fill {
+  background: #fff;
+  height: 135px; }
+
+.padding-on-my-header {
+  padding: 17px 0.9375rem 62px 0.9375rem; }
+  .padding-on-my-header ul.title-area img {
+    margin: -5px 0 0 0; }
+
+.full-width {
+  min-width: 100%; }
+
+p {
+  line-height: 3rem;
+  padding-bottom: 30px; }
+
+.contain-section .main-content {
+  margin-top: 35px; }
+
+.footer-section {
+  background: #0E4F64;
+  min-height: 100px; }
+  .footer-section p {
+    color: #fff;
+    margin-top: 50px; }
+  .footer-section .social li {
+    max-width: 60px; }
+  .footer-section .content {
+    margin-top: 30px; }
+  .footer-section h5 {
+    color: #FFFFFF; }
+
+.top-bar {
+  background: none;
+  padding: 45px 0.9375rem 90px 0.9375rem;
+  transition: all 0.5s ease 0.1s;
+  max-width: 100%; }
+  .top-bar ul.title-area img {
+    margin: -10px 0 0 0; }
+  .top-bar .top-bar-section ul {
+    background: none;
+    padding-right: 10px; }
+    .top-bar .top-bar-section ul li a:not(.button), .top-bar .top-bar-section ul li.active a:not(.button) {
+      background: none;
+      line-height: 30px;
+      font-size: 12px;
+      padding: 0;
+      margin: 5px 0 0 0;
+      text-transform: uppercase; }
+    .top-bar .top-bar-section ul li a:not(.button):hover {
+      border-bottom: 2px solid #36ACD1;
+      color: #0E4F64;
+      background: none; }
+    .top-bar .top-bar-section ul li.active a:not(.button) {
+      border-bottom: 2px solid #1A748F;
+      color: #0E4F64; }
+      .top-bar .top-bar-section ul li.active a:not(.button):hover {
+        background: none;
+        color: #0E4F64; }
+    .top-bar .top-bar-section ul li {
+      margin-left: 30px;
+      background: none; }
+      .top-bar .top-bar-section ul li a {
+        color: #888; }
+  .top-bar .top-bar-section ul li:hover:not(.has-form) > a {
+    color: #333; }
+  .top-bar .top-bar-section li ul.dropdown {
+    background: #fff;
+    border: 1px solid #ddd;
+    color: #888; }
+    .top-bar .top-bar-section li ul.dropdown li {
+      border-bottom: 1px solid #ddd;
+      margin: 0;
+      padding: 5px 15px 5px 15px; }
+  .top-bar .top-bar-section li ul.dropdown li a:not(.button):hover, .top-bar .top-bar-section li ul.dropdown li a:not(.button) {
+    background: none;
+    color: #222;
+    border-bottom: none;
+    padding: 20px -4px 40px 45px; }
+  .top-bar .top-bar-section ul.dropdown li:hover:not(.has-form) > a:not(.button) {
+    background: none;
+    color: #222; }
+  .top-bar .has-dropdown > a:after {
+    border-color: rgba(0, 0, 0, 0.5) transparent transparent;
+    margin-top: -5px; }
+  .top-bar .has-submenu {
+    background: blue; }
+
+.top-bar .scroll {
+  padding: 0; }
+
+.submenu {
+  opacity: 0;
+  display: none;
+  min-width: 100%;
+  background: #0E4F64;
+  text-align: center;
+  height: 135px; }
+  .submenu .tablet-mobile-logo {
+    padding-top: 30px; }
+  .submenu ul {
+    display: inline-block;
+    list-style-type: none;
+    color: white; }
+  .submenu li {
+    display: inline;
+    margin-left: 50px; }
+  .submenu li:first-of-type {
+    margin-right: 50px;
+    margin-left: 0px; }
+  .submenu img, .submenu embed, .submenu object {
+    margin-bottom: 10px;
+    height: 45px; }
+  .submenu .submenu-item {
+    display: inline-block; }
+  .submenu .has-submenu a::after {
+    content: "text";
+    color: red; }
+  .submenu a {
+    display: inline-block;
+    margin: 33px 28px 0;
+    font-size: 13px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    color: #CDCDCD; }
+    .submenu a:hover {
+      color: white; }
+
+/*# sourceMappingURL=main.css.map */
