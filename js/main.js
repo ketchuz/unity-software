@@ -1,4 +1,4 @@
-var app = angular.module('tutorialWebApp', [
+var app = angular.module('unity-software', [
 	'ngRoute'
 	]);
 
@@ -19,17 +19,14 @@ app.config(['$routeProvider', function ($routeProvider) {
     .otherwise("/404", {templateUrl: "partials/404.html"});
 }]);
 
-
 app.directive('responsiveslides', function () {
 	
 	return {
-		link: function (scope, element, attrs) {
-			
-			element.responsiveslides({
-				nav: true,
-          	speed: 1000,  // Integer: Speed of the transition, in milliseconds
-          	timeout: 4000,
-          });
-		}
-	}
+		// Restrict it to be an attribute in this case
+		restrict: 'A',
+        // responsible for registering DOM listeners as well as updating the DOM
+        link: function(scope, element, attrs) {
+        	$(element).responsiveSlides(scope.$eval(attrs.responsiveslides));
+        }
+    }
 });

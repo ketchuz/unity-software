@@ -70,6 +70,10 @@
 // Large screens
 @media only screen and (min-width: 64.063em) { 
 	#logo-image {
+		// transition: margin 0.5s ease;
+		transition: width 0.5s ease;
+		transform-origin: top left;
+		
 		width: 35%;
 		margin: -75px 0 0 0;
 	}
@@ -284,8 +288,15 @@ p {
 
 // SCROLLING 
 .top-bar {
-	.scroll {
+
+	&.scroll {
+		// transition: padding 0.5s ease;
 		padding: 0;
+	}
+
+	.scroll {
+		width : 181;
+		margin: -18px -5px 22px 20px;
 	}
 }
 
@@ -293,7 +304,7 @@ p {
 // SUBMENU 
 
 .submenu {
-	opacity: 0;
+	opacity: 1;
 	display: none;
 	// position: fixed;
 	min-width: 100%;

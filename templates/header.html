@@ -7,52 +7,111 @@
     <ul class="title-area">
       <li class="name">
         <img src="img/Logo.svg" alt="" id="logo-image">
-    </li>
+      </li>
 
-    <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
-</ul> <!-- END TITLE AREA & LOGO -->
+      <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+    </ul> <!-- END TITLE AREA & LOGO -->
 
 
-<!-- MENU ITEMS -->
-<section class="top-bar-section">
-  <ul class="right">
-    <li class="active"><a href="#">Home</a></li>
-    <li class="has-submenu" data-item="services">
-      <a href="#">Services <span class="dropdown-arrow">▼</span></a>
+    <!-- MENU ITEMS -->
+    <section class="top-bar-section">
+      <ul class="right">
+        <li class="active"><a href="#">Home</a></li>
+        <li class="has-submenu" submenu="{item: 'services'}">
+          <a href="">Services <span class="dropdown-arrow">▼</span></a>
 
-  </li>
-  <li><a href="#">About Us</a></li>
-  <li><a href="#">Products</a></li>
-  <li><a href="#">Contact</a></li>
-</ul>
-</section>
-</nav> <!-- END TOPBAR -->
+        </li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </section>
+  </nav> <!-- END TOPBAR -->
 
-<div class="submenu" id="submenu-services">
+  <div class="submenu" id="submenu-services">
     <div class="submenu-item">
-      <a href="#" data-submenuitem="webdev">
+      <a href="#" submenu-item="{item: 'webdev'}">
         <div>
           <object id="svgObject-webdev" data="img/webDev.svg" type="image/svg+xml"></object>
           <!-- <embed src="img/webDev.svg" type=""> -->
           <!-- <img src="img/webDev.png" alt=""> -->
-      </div>
-      <span>Web Development</span>
-  </a>
-</div>
+        </div>
+        <span>Web Development</span>
+      </a>
+    </div>
 
-<div class="submenu-item">
-  <a href="#" data-submenuitem="mobApps">
-    <div >
-      <object id="svgObject-mobApps" data="img/mobApps.svg" type="image/svg+xml"></object>
-      <!-- <embed src="img/mobApps.svg" type=""> -->
-      <!-- <img src="img/mobApps.png" alt=""> -->
+    <div class="submenu-item">
+      <a href="#" submenu-item="{item: 'mobApps'}">
+        <div >
+          <object id="svgObject-mobApps" data="img/mobApps.svg" type="image/svg+xml"></object>
+          <!-- <embed src="img/mobApps.svg" type=""> -->
+          <!-- <img src="img/mobApps.png" alt=""> -->
+        </div>
+        <span>Mobile Apps</span>
+      </a>
+    </div>
+
+
   </div>
-  <span>Mobile Apps</span>
-</a>
-</div>
-
 
 </div>
 
-</div>
+<script>
+  function init() {
+    var width, margin,
+    header = $('.top-bar');
+    image = header.find('#logo-image');
+    width = image.width();
+    margin = image.css('margin-top') + ' ' + image.css('margin-right') + ' ' + image.css('margin-bottom') + ' ' + image.css('margin-left');
+
+    console.log(margin);
+
+    window.addEventListener('scroll', function(e){
+      var distanceY = window.pageYOffset || document.documentElement.scrollTop,
+      shrinkOn = 100;
+
+      if (distanceY > shrinkOn) {
+
+
+        header.addClass('scroll');
+
+
+
+        // header.animate({
+        //   'padding': 0
+        // });
+
+        // image.animate({
+        //   'width' : 181,
+        //   'margin': '-18px -5px 22px 20px'
+        // });
+
+
+
+
+
+      } else {
+        if(header.hasClass('scroll'))
+        {
+          header.removeClass('scroll');
+
+          // header.animate({
+          //   'padding': '45px 0.9375rem 90px 0.9375rem'
+          // }, {
+          //   complete: function() {
+          //     header.find('#logo-image').animate({
+          //       'width' : '35%',
+          //       'margin': margin
+          //     });
+          //   }
+          // });
+
+        }
+      }
+    });
+  }
+  window.onload = init();
+
+
+</script>
 

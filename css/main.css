@@ -11,6 +11,8 @@
     margin: -18px -5px 22px 20px; } }
 @media only screen and (min-width: 64.063em) {
   #logo-image {
+    transition: width 0.5s ease;
+    transform-origin: top left;
     width: 35%;
     margin: -75px 0 0 0; }
 
@@ -117,11 +119,14 @@ p {
   .top-bar .has-submenu {
     background: blue; }
 
-.top-bar .scroll {
+.top-bar.scroll {
   padding: 0; }
+.top-bar .scroll {
+  width: 181;
+  margin: -18px -5px 22px 20px; }
 
 .submenu {
-  opacity: 0;
+  opacity: 1;
   display: none;
   min-width: 100%;
   background: #0E4F64;
