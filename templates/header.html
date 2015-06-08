@@ -1,4 +1,4 @@
- <div class="contain-to-grid header-section">
+ <div class="contain-to-grid header-section" ng-controller="MenuCtrl">
 
   <!-- TOP BAR SECTION -->
   <nav class="top-bar important-class" data-topbar>
@@ -17,7 +17,7 @@
     <section class="top-bar-section">
       <ul class="right">
         <li class="active"><a href="#">Home</a></li>
-        <li class="has-submenu" submenu="{item: 'services'}">
+        <li class="has-submenu" submenu="{item: 'services'}" ng-click="dropSubmenu()">
           <a href="">Services <span class="dropdown-arrow">▼</span></a>
 
         </li>
@@ -30,7 +30,7 @@
 
   <div class="submenu" id="submenu-services">
     <div class="submenu-item">
-      <a href="#" submenu-item="{item: 'webdev'}">
+      <a href="#/webdev" submenu-item="{item: 'webdev', menu: 'services'}" ng-click="setFlag()" >
         <div>
           <object id="svgObject-webdev" data="img/webDev.svg" type="image/svg+xml"></object>
           <!-- <embed src="img/webDev.svg" type=""> -->
@@ -41,7 +41,7 @@
     </div>
 
     <div class="submenu-item">
-      <a href="#" submenu-item="{item: 'mobApps'}">
+      <a href="" submenu-item="{item: 'mobApps'}" ng-click="setFlag()">
         <div >
           <object id="svgObject-mobApps" data="img/mobApps.svg" type="image/svg+xml"></object>
           <!-- <embed src="img/mobApps.svg" type=""> -->
@@ -51,67 +51,57 @@
       </a>
     </div>
 
-
-  </div>
-
-</div>
-
-<script>
-  function init() {
-    var width, margin,
-    header = $('.top-bar');
-    image = header.find('#logo-image');
-    width = image.width();
-    margin = image.css('margin-top') + ' ' + image.css('margin-right') + ' ' + image.css('margin-bottom') + ' ' + image.css('margin-left');
-
-    console.log(margin);
-
-    window.addEventListener('scroll', function(e){
-      var distanceY = window.pageYOffset || document.documentElement.scrollTop,
-      shrinkOn = 100;
-
-      if (distanceY > shrinkOn) {
+    <!-- <div class="submenu-item">
+      <a href="" submenu-item="{item: 'mobApps'}" ng-click="setFlag()">
+        <div >
+          <object id="svgObject-mobApps" data="img/mobApps.svg" type="image/svg+xml"></object>
+          <! <embed src="img/mobApps.svg" type=""> -->
+          <!-- <img src="img/mobApps.png" alt=""> -->
+          <!-- </div> -->
+          <!-- <span>{{test}}</span> -->
+          <!-- </a> -->
+          <!-- </div> --> 
 
 
-        header.addClass('scroll');
+        </div>
+
+      </div>
+
+      <script>
+        function init() {
+          var width, margin,
+          header = $('.top-bar');
+          image = header.find('#logo-image');
+          width = image.width();
+          margin = image.css('margin-top') + ' ' + image.css('margin-right') + ' ' + image.css('margin-bottom') + ' ' + image.css('margin-left');
+
+          console.log(margin);
+
+          window.addEventListener('scroll', function(e){
+            var distanceY = window.pageYOffset || document.documentElement.scrollTop,
+            shrinkOn = 100;
+
+            if (distanceY > shrinkOn) {
 
 
-
-        // header.animate({
-        //   'padding': 0
-        // });
-
-        // image.animate({
-        //   'width' : 181,
-        //   'margin': '-18px -5px 22px 20px'
-        // });
-
-
+              header.addClass('scroll');
 
 
 
-      } else {
-        if(header.hasClass('scroll'))
-        {
-          header.removeClass('scroll');
 
-          // header.animate({
-          //   'padding': '45px 0.9375rem 90px 0.9375rem'
-          // }, {
-          //   complete: function() {
-          //     header.find('#logo-image').animate({
-          //       'width' : '35%',
-          //       'margin': margin
-          //     });
-          //   }
-          // });
 
+
+
+            } else {
+              if(header.hasClass('scroll')) {
+                header.removeClass('scroll');
+
+              }
+            }
+          });
         }
-      }
-    });
-  }
-  window.onload = init();
+        window.onload = init();
 
 
-</script>
+      </script>
 

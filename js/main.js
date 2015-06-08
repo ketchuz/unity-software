@@ -5,8 +5,9 @@ var app = angular.module('unity-software', [
 app.config(['$routeProvider', function ($routeProvider) {
 	$routeProvider
     // Home
-    .when("/", {templateUrl: "partials/home.html"})
+    .when("/", {templateUrl: "partials/home.html", controller: "HomeCtrl"})
     // Pages
+    .when("/webdev", {templateUrl: "partials/services/webdev.html"})
     .when("/about", {templateUrl: "partials/about.html"})
     // .when("/faq", {templateUrl: "partials/faq.html", controller: "PageCtrl"})
     // .when("/pricing", {templateUrl: "partials/pricing.html", controller: "PageCtrl"})
@@ -19,14 +20,14 @@ app.config(['$routeProvider', function ($routeProvider) {
     .otherwise("/404", {templateUrl: "partials/404.html"});
 }]);
 
-app.directive('responsiveslides', function () {
+// app.directive('responsiveslides', function () {
 	
-	return {
-		// Restrict it to be an attribute in this case
-		restrict: 'A',
-        // responsible for registering DOM listeners as well as updating the DOM
-        link: function(scope, element, attrs) {
-        	$(element).responsiveSlides(scope.$eval(attrs.responsiveslides));
-        }
-    }
-});
+// 	return {
+// 		// Restrict it to be an attribute in this case
+// 		restrict: 'A',
+//         // responsible for registering DOM listeners as well as updating the DOM
+//         link: function(scope, element, attrs) {
+//         	$(element).responsiveSlides(scope.$eval(attrs.responsiveslides));
+//         }
+//     }
+// });

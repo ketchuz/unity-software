@@ -1,6 +1,6 @@
 var app = angular.module('unity-software')
 
-app.directive('submenu', function () {
+app.directive('submenu', ['MenuAPI', function (MenuAPI) {
 
 	// Initial variables of the directive
 	var submenu_open = false;
@@ -14,6 +14,7 @@ app.directive('submenu', function () {
     	submenu
     	.slideDown();
 
+
     	return( submenu );
     };
 
@@ -25,7 +26,26 @@ app.directive('submenu', function () {
     	.slideUp();
 
     	return( submenu );
-    };
+    };	
+
+
+    function SubmenuClick(element){
+    	// If the menu is already opened
+    	// close it
+    	if(submenu_open){
+    		element.find('span').html('▼');
+    		Close(submenu_container);
+    		submenu_open = false;
+
+    	} 
+    	// If the menu is closed,
+    	// open it
+    	else {
+    		element.find('span').html('▲');
+    		Open(submenu_container);
+    		submenu_open = true;
+    	}
+    }
 
 
 	// Return the directive configuration.
@@ -43,36 +63,37 @@ app.directive('submenu', function () {
     // I bind the JavaScript events to the local scope.
     function link( scope, element, attributes ) {
 
+    	
+
+
     	// Get the name of the submenu
     	submenu_item = scope.$eval(attributes.submenu).item;
 
     	// Get the container of the submenu
     	submenu_container = angular.element('#submenu-' + submenu_item);
 
-    	element.on(
-    		"click",
-    		function handleClickEvent( event ) {
+    	// element.on(
+    	// 	"click",
+    	// 	function handleClickEvent( event ) {
 
-    			// If the menu is already opened
-    			// close it
-    			if(submenu_open){
-    				element.find('span').html('▼');
-    				Close(submenu_container);
-    				submenu_open = false;
-    			} 
-                // If the menu is closed,
-                // open it
-                else {
-                	element.find('span').html('▲');
-                	Open(submenu_container);
-                	submenu_open = true;
-                }
+    	// 		SubmenuClick(element);
+    	// 	});
 
-            });
-    }
+scope.$watch(function () {
+	return MenuAPI.tags;
+}, 
+
+function(newVal, oldVal) {
+	if(newVal == true)
+		Close(submenu_container);
+	else
+		Open(submenu_container);
+
+}, true);
+}
 
 
-});
+}]);
 
 
 app.directive('submenuItem', function () {
@@ -123,6 +144,7 @@ app.directive('submenuItem', function () {
 				svgItem = scope.$eval(attributes.submenuItem).item;
 				subMenu_Hover(svgItem, "#CDCDCD");
 			});
+
 	}
 
 });
