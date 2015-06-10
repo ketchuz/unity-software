@@ -5,10 +5,14 @@ var app = angular.module('unity-software', [
 app.config(['$routeProvider', function ($routeProvider) {
 	$routeProvider
     // Home
-    .when("/", {templateUrl: "partials/home.html", controller: "HomeCtrl"})
+    // .when("/", {templateUrl: "partials/home.html", controller: "HomeCtrl"})
+    .when("/home", {templateUrl: "partials/home.html", controller: "HomeCtrl"})
     // Pages
     .when("/webdev", {templateUrl: "partials/services/webdev.html"})
+    .when("/mobapps", {templateUrl: "partials/services/mobapps.html"})
     .when("/about", {templateUrl: "partials/about.html"})
+    .when("/products", {templateUrl: "partials/products.html"})
+    .when("/contact", {templateUrl: "partials/contact.html"})
     // .when("/faq", {templateUrl: "partials/faq.html", controller: "PageCtrl"})
     // .when("/pricing", {templateUrl: "partials/pricing.html", controller: "PageCtrl"})
     // .when("/services", {templateUrl: "partials/services.html", controller: "PageCtrl"})
@@ -17,7 +21,9 @@ app.config(['$routeProvider', function ($routeProvider) {
     // .when("/blog", {templateUrl: "partials/blog.html", controller: "BlogCtrl"})
     // .when("/blog/post", {templateUrl: "partials/blog_item.html", controller: "BlogCtrl"})
     // else 404
-    .otherwise("/404", {templateUrl: "partials/404.html"});
+    .otherwise({
+        redirectTo: '/home'
+    });
 }]);
 
 // app.directive('responsiveslides', function () {

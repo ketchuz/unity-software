@@ -16,14 +16,14 @@
     <!-- MENU ITEMS -->
     <section class="top-bar-section">
       <ul class="right">
-        <li class="active"><a href="#">Home</a></li>
-        <li class="has-submenu" submenu="{item: 'services'}" ng-click="dropSubmenu()">
+        <li ng-class="getClass('/home')" ng-click="setFlag()"><a href="#/home">Home</a></li>
+        <li ng-class="getClass('/webdev') || getClass('/mobapps')" class="has-submenu" submenu="{item: 'services'}" ng-click="dropSubmenu()">
           <a href="">Services <span class="dropdown-arrow">▼</span></a>
 
         </li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Products</a></li>
-        <li><a href="#">Contact</a></li>
+        <li ng-class="getClass('/about')"><a href="#/about">About Us</a></li>
+        <li ng-class="getClass('/products')"><a href="#/products">Products</a></li>
+        <li ng-class="getClass('/contact')"><a href="#/contact">Contact</a></li>
       </ul>
     </section>
   </nav> <!-- END TOPBAR -->
@@ -41,7 +41,7 @@
     </div>
 
     <div class="submenu-item">
-      <a href="" submenu-item="{item: 'mobApps'}" ng-click="setFlag()">
+      <a href="#/mobapps" submenu-item="{item: 'mobApps'}" ng-click="setFlag()">
         <div >
           <object id="svgObject-mobApps" data="img/mobApps.svg" type="image/svg+xml"></object>
           <!-- <embed src="img/mobApps.svg" type=""> -->
@@ -85,13 +85,6 @@
 
 
               header.addClass('scroll');
-
-
-
-
-
-
-
             } else {
               if(header.hasClass('scroll')) {
                 header.removeClass('scroll');

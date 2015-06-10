@@ -3,49 +3,32 @@ var app = angular.module('unity-software')
 app.directive('submenu', ['MenuAPI', function (MenuAPI) {
 
 	// Initial variables of the directive
-	var submenu_open = false;
 	var submenu_container;
 
 
     // Function to Open the submenu container 
     // with a slide down animation
-    function Open ( submenu ) {
+    function Open ( submenu, element) {
 
     	submenu
     	.slideDown();
 
+    	element.find('span').html('▲');
 
     	return( submenu );
     };
 
     // Function do Close the submenu container
     // with a slide up animation
-    function Close ( submenu ) {
+    function Close ( submenu, element ) {
 
     	submenu
     	.slideUp();
 
+    	element.find('span').html('▼');
+
     	return( submenu );
     };	
-
-
-    function SubmenuClick(element){
-    	// If the menu is already opened
-    	// close it
-    	if(submenu_open){
-    		element.find('span').html('▼');
-    		Close(submenu_container);
-    		submenu_open = false;
-
-    	} 
-    	// If the menu is closed,
-    	// open it
-    	else {
-    		element.find('span').html('▲');
-    		Open(submenu_container);
-    		submenu_open = true;
-    	}
-    }
 
 
 	// Return the directive configuration.
@@ -63,35 +46,35 @@ app.directive('submenu', ['MenuAPI', function (MenuAPI) {
     // I bind the JavaScript events to the local scope.
     function link( scope, element, attributes ) {
 
-    	
-
-
     	// Get the name of the submenu
     	submenu_item = scope.$eval(attributes.submenu).item;
 
     	// Get the container of the submenu
     	submenu_container = angular.element('#submenu-' + submenu_item);
 
-    	// element.on(
-    	// 	"click",
-    	// 	function handleClickEvent( event ) {
 
-    	// 		SubmenuClick(element);
-    	// 	});
+    	scope.$watch(function () {
+		return MenuAPI.tags;
+	}, 
 
-scope.$watch(function () {
-	return MenuAPI.tags;
-}, 
+	function(newVal, oldVal) {
 
-function(newVal, oldVal) {
-	if(newVal == true)
-		Close(submenu_container);
-	else
-		Open(submenu_container);
+			// console.log('new');
+			// console.log(newVal.a);
+			// console.log('old');
+			// console.log(oldVal.a);
 
-}, true);
+		if (newVal.a === true){
+			console.log('the value is true');
+			Open(submenu_container, element)
+		}
+		else {
+			console.log('the value is false');
+			Close(submenu_container, element);
+		}
+	}, true);
+
 }
-
 
 }]);
 

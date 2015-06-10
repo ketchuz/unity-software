@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @media only screen and (min-width: 40.063em) {
   #logo-image {
     width: auto;
@@ -162,5 +163,88 @@ p {
     color: #CDCDCD; }
     .submenu a:hover {
       color: white; }
+
+blockquote {
+  border-left: 10px solid #ccc;
+  margin: 2.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "“" "”" "‘" "’";
+  text-align: right; }
+  blockquote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em; }
+  blockquote h1, blockquote h2 {
+    display: inline;
+    color: #888; }
+  blockquote p {
+    margin-bottom: 0px; }
+
+.or-spacer {
+  margin: 20px auto;
+  width: 400px;
+  position: relative; }
+  .or-spacer .mask {
+    overflow: hidden;
+    height: 20px; }
+    .or-spacer .mask:after {
+      content: '';
+      display: block;
+      margin: -25px auto 0;
+      width: 100%;
+      height: 25px;
+      border-radius: 125px / 12px;
+      box-shadow: 0 0 8px black; }
+  .or-spacer span {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 100%;
+    margin-bottom: -25px;
+    left: 50%;
+    margin-left: -25px;
+    border-radius: 100%;
+    box-shadow: 0 2px 4px #999;
+    background: white; }
+  .or-spacer span i {
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    left: 4px;
+    right: 4px;
+    border-radius: 100%;
+    border: 1px dashed #aaa;
+    text-align: center;
+    line-height: 40px;
+    font-style: normal;
+    color: #999; }
+
+.circle {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  background-size: cover;
+  display: block;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px; }
+
+.member {
+  text-align: center; }
+
+.media-contact li {
+  padding-bottom: 0px; }
+.media-contact a {
+  padding: 5px 10px;
+  display: inline-block;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  border-radius: 100px;
+  -moz-box-shadow: 0px 0px 2px #888;
+  -webkit-box-shadow: 0px 0px 2px #888;
+  box-shadow: 0px 0px 2px #888; }
 
 /*# sourceMappingURL=main.css.map */

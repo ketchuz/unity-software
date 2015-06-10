@@ -1,6 +1,6 @@
 var app = angular.module('unity-software');
 
-app.controller('MenuCtrl', ['$scope', 'MenuAPI', function ($scope, MenuAPI) {
+app.controller('MenuCtrl', ['$scope', 'MenuAPI', '$location', function ($scope, MenuAPI, $location) {
 	$scope.test = "Hello from menu controller";
 	var isOpen = false;
 
@@ -23,16 +23,14 @@ app.controller('MenuCtrl', ['$scope', 'MenuAPI', function ($scope, MenuAPI) {
 		MenuAPI.setTrueTag();
 	}
 
-	$scope.$watch(function () {
-		return MenuAPI.tags;
-	}, 
 
-	function(newVal, oldVal) {
-		alert("Inside watch");
-		console.log('new');
-		console.log(newVal);
-		console.log('old');
-		console.log(oldVal);
-	}, true);
+	$scope.getClass = function(path) {
+	    if ($location.path().substr(0, path.length) == path) {
+	      return "active"
+	    } else {
+	      return ""
+	    }
+	}
+
 
 }]);
